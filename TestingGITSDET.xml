@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="TestingGITSDET" path="/TestingGITSDET" id="441805ab-c29e-4127-8815-4b1b4cc5f738" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="441805ab-c29e-4127-8815-4b1b4cc5f738fileName">TestingGITSDET</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="TestingGITSDET" id="b0cfdf9d-7880-4b97-bcc8-6af790a2a71b" method="GET">
+    <con:settings/>
+    <con:parameters/>
+    <con:request name="Request 1" id="cdc603cc-1c84-459a-8dde-f3277689b6c7" mediaType="application/json">
+      <con:settings/>
+      <con:request/>
+      <con:credentials>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+</con:resource>
