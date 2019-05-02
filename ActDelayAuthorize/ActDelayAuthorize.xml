@@ -16,7 +16,7 @@
         </con:property>
         <con:property>
           <con:name>ChargeExpirationDate</con:name>
-          <con:value>0420</con:value>
+          <con:value>0421</con:value>
         </con:property>
         <con:property>
           <con:name>ChargeCVV</con:name>
