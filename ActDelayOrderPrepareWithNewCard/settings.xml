@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="1b0629c1-44bd-4349-892a-c86b2d2c1ef4" name="ActDelayOrderPrepareWithNewCard" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="1b0629c1-44bd-4349-892a-c86b2d2c1ef4fileName">ActDelayOrderPrepareWithNewCard</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:runType>SEQUENTIAL</con:runType>
+  <con:properties>
+    <con:property>
+      <con:name>TR_id</con:name>
+      <con:value>4279</con:value>
+    </con:property>
+    <con:property>
+      <con:name>TR_section_path</con:name>
+      <con:value/>
+    </con:property>
+    <con:property>
+      <con:name>TR_run_name</con:name>
+      <con:value/>
+    </con:property>
+    <con:property>
+      <con:name>TR_plan_name</con:name>
+      <con:value/>
+    </con:property>
+    <con:property>
+      <con:name>TR_case_type</con:name>
+      <con:value/>
+    </con:property>
+  </con:properties>
+  <con:reportParameters/>
+  <con:environmentSpec>
+    <con:entry environmentId="5214331a-f93a-4dbb-8438-d770e5d5ca80">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:testSuite>

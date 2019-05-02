@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="83ef5cd3-93f7-4d6f-b3ee-beb046cd2423" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="SessionCreate" searchProperties="true" timeout="0" maxResults="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="472af858-2a56-499b-8382-7afc2a417f84fileName">SessionCreate</con:setting>
+    <con:setting id="83ef5cd3-93f7-4d6f-b3ee-beb046cd2423fileName">SessionCreate</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="calltestcase" name="CustomerInfo" id="2963b258-6589-4e9b-884b-3a07123f34e2">
+    <con:settings/>
+    <con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:targetTestCase>50ac191b-6b66-4551-bf5f-8632b09c9736</con:targetTestCase>
+      <con:properties>
+        <con:property>
+          <con:name>cardHolderAddressLine1</con:name>
+        </con:property>
+        <con:property>
+          <con:name>cardHolderAddressLine2</con:name>
+        </con:property>
+        <con:property>
+          <con:name>cardHolderCity</con:name>
+        </con:property>
+        <con:property>
+          <con:name>cardHolderCountryCodeUS</con:name>
+        </con:property>
+        <con:property>
+          <con:name>cardHolderFirstName</con:name>
+        </con:property>
+        <con:property>
+          <con:name>cardHolderLastName</con:name>
+        </con:property>
+        <con:property>
+          <con:name>cardHolderPostalCode</con:name>
+        </con:property>
+        <con:property>
+          <con:name>cardHolderAmount</con:name>
+        </con:property>
+        <con:property>
+          <con:name>cardHolderState</con:name>
+        </con:property>
+        <con:property>
+          <con:name>MDN</con:name>
+          <con:value>4149387161</con:value>
+        </con:property>
+        <con:property>
+          <con:name>cardHolderPromoAmount</con:name>
+        </con:property>
+      </con:properties>
+      <con:returnProperties>
+        <con:entry>MDN</con:entry>
+      </con:returnProperties>
+      <con:runMode>PARALLELL</con:runMode>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" id="c6d460ac-193a-4016-90d3-58a37bbcf4e2" name="SessionCreate">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>ServiceSoapBinding</con:interface>
+      <con:operation>SessionCreate</con:operation>
+      <con:request name="SessionCreate" id="c30f4b6d-a3cb-477b-8ed0-ad5a96c607e1">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>http://localhost:8020/MobilityUS_Service/Service</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.trustvesta.com/MobilityUS_Service/Service">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:SessionCreateRequest>
+         <!--You may enter the following 5 items in any order-->
+         <!--Optional:-->
+         <ser:PartnerChannelCode>${#Project#PartnerChannelCode}</ser:PartnerChannelCode>
+         <!--Optional:-->
+         <ser:PartnerChannelDescriptor>AutomatedTest</ser:PartnerChannelDescriptor>
+         <!--Optional:-->
+         <ser:VendorID>${#Project#VendorID}</ser:VendorID>
+         <!--Optional:-->
+         <ser:VendorPassword>${#Project#VendorPassword}</ser:VendorPassword>
+         <!--Optional:-->
+         <ser:AgentID>${#[DataGenerator#CustomerInformation#CustomerInfo]#MDN}</ser:AgentID>
+      </ser:SessionCreateRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="XPath Match" id="c5fd8e68-8797-41b3-95f4-3241380edb45" name="Match content of [m:ResponseCode]">
+          <con:configuration>
+            <path>declare namespace m='http://services.trustvesta.com/MobilityUS_Service/Service';
+//m:SessionCreateResponse[1]/m:ResponseCode[1]/text()</path>
+            <content>0</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="XPath Match" id="c8ec25e8-57e5-4888-93b8-37e7bf17aa4d" name="Check for existence of [m:SessionKey]">
+          <con:configuration>
+            <path>declare namespace m='http://services.trustvesta.com/MobilityUS_Service/Service';
+exists( //m:SessionCreateResponse/m:SessionKey)</path>
+            <content>true</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig action="SessionCreate" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+        <con:environmentSpec>
+          <con:entry environmentId="1fdcf028-54a3-4eac-be85-401de090030d">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="5214331a-f93a-4dbb-8438-d770e5d5ca80">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:properties>
+    <con:property>
+      <con:name>TR_id</con:name>
+      <con:value>43049</con:value>
+    </con:property>
+  </con:properties>
+  <con:reportParameters/>
+  <con:environmentSpec>
+    <con:entry environmentId="5214331a-f93a-4dbb-8438-d770e5d5ca80">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:testCase>

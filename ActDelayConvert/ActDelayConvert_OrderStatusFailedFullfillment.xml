@@ -1,0 +1,602 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="1ce8130d-dca2-4c22-8f18-ea26c4086435" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="ActDelayConvert_OrderStatusFailedFullfillment" searchProperties="true" timeout="0" disabled="true" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="2c48d887-2f58-4a64-bc8f-b9a1371769e3fileName">ActDelayConvert</con:setting>
+    <con:setting id="ce33b4d0-5cbb-4f65-82ab-dafce3ab34ecfileName">ActDelayConvert_OrderStatusBankDenied</con:setting>
+    <con:setting id="1ce8130d-dca2-4c22-8f18-ea26c4086435fileName">ActDelayConvert_OrderStatusFailedFullfillment</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="calltestcase" name="CardInfo" id="b40299f8-4812-40fd-8f50-aa069a33870e">
+    <con:settings/>
+    <con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:targetTestCase>a53f04a6-4173-45f8-8b38-59d3d87529fc</con:targetTestCase>
+      <con:properties>
+        <con:property>
+          <con:name>ChargeAccountNumber</con:name>
+          <con:value>4009998741726879</con:value>
+        </con:property>
+        <con:property>
+          <con:name>ChargeExpirationDate</con:name>
+          <con:value>0420</con:value>
+        </con:property>
+        <con:property>
+          <con:name>ChargeCVV</con:name>
+          <con:value>879</con:value>
+        </con:property>
+      </con:properties>
+      <con:returnProperties>
+        <con:entry>ChargeAccountNumber</con:entry>
+        <con:entry>ChargeExpirationDate</con:entry>
+        <con:entry>ChargeCVV</con:entry>
+      </con:returnProperties>
+      <con:runMode>PARALLELL</con:runMode>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="calltestcase" name="CustomerInfo" id="e664bc13-4890-4386-8fb4-b057f0e42223">
+    <con:settings/>
+    <con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:targetTestCase>50ac191b-6b66-4551-bf5f-8632b09c9736</con:targetTestCase>
+      <con:properties>
+        <con:property>
+          <con:name>cardHolderAddressLine1</con:name>
+          <con:value>21812 Oneal Way</con:value>
+        </con:property>
+        <con:property>
+          <con:name>cardHolderAddressLine2</con:name>
+          <con:value>15924 EastTajikistan St.</con:value>
+        </con:property>
+        <con:property>
+          <con:name>cardHolderCity</con:name>
+          <con:value>Kemmerer</con:value>
+        </con:property>
+        <con:property>
+          <con:name>cardHolderCountryCodeUS</con:name>
+          <con:value>US</con:value>
+        </con:property>
+        <con:property>
+          <con:name>cardHolderFirstName</con:name>
+          <con:value>Kevyn</con:value>
+        </con:property>
+        <con:property>
+          <con:name>cardHolderLastName</con:name>
+          <con:value>Spencer</con:value>
+        </con:property>
+        <con:property>
+          <con:name>cardHolderPostalCode</con:name>
+          <con:value>03700</con:value>
+        </con:property>
+        <con:property>
+          <con:name>cardHolderAmount</con:name>
+          <con:value>199</con:value>
+        </con:property>
+        <con:property>
+          <con:name>cardHolderState</con:name>
+          <con:value>ME</con:value>
+        </con:property>
+        <con:property>
+          <con:name>MDN</con:name>
+          <con:value>3062246860</con:value>
+        </con:property>
+        <con:property>
+          <con:name>cardHolderPromoAmount</con:name>
+          <con:value>112</con:value>
+        </con:property>
+      </con:properties>
+      <con:returnProperties>
+        <con:entry>cardHolderAddressLine1</con:entry>
+        <con:entry>cardHolderAddressLine2</con:entry>
+        <con:entry>cardHolderCity</con:entry>
+        <con:entry>cardHolderCountryCodeUS</con:entry>
+        <con:entry>cardHolderFirstName</con:entry>
+        <con:entry>cardHolderLastName</con:entry>
+        <con:entry>cardHolderPostalCode</con:entry>
+        <con:entry>cardHolderAmount</con:entry>
+        <con:entry>cardHolderState</con:entry>
+        <con:entry>MDN</con:entry>
+        <con:entry>cardHolderPromoAmount</con:entry>
+      </con:returnProperties>
+      <con:runMode>PARALLELL</con:runMode>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" id="971aff8c-0119-42d2-84a9-a5d6a5e5093b" name="SessionCreate">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>ServiceSoapBinding</con:interface>
+      <con:operation>SessionCreate</con:operation>
+      <con:request name="SessionCreate" id="c30f4b6d-a3cb-477b-8ed0-ad5a96c607e1">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>http://localhost:8020/MobilityUS_Service/Service</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.trustvesta.com/MobilityUS_Service/Service">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:SessionCreateRequest>
+         <!--You may enter the following 5 items in any order-->
+         <!--Optional:-->
+         <ser:PartnerChannelCode>${#Project#PartnerChannelCode}</ser:PartnerChannelCode>
+         <!--Optional:-->
+         <ser:PartnerChannelDescriptor>AutomatedTest</ser:PartnerChannelDescriptor>
+         <!--Optional:-->
+         <ser:VendorID>${#Project#VendorID}</ser:VendorID>
+         <!--Optional:-->
+         <ser:VendorPassword>${#Project#VendorPassword}</ser:VendorPassword>
+         <!--Optional:-->
+         <ser:AgentID>${#[DataGenerator#CustomerInformation#CustomerInfo]#MDN}</ser:AgentID>
+      </ser:SessionCreateRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="XPath Match" id="c5fd8e68-8797-41b3-95f4-3241380edb45" name="Match content of [m:ResponseCode]">
+          <con:configuration>
+            <path>declare namespace m='http://services.trustvesta.com/MobilityUS_Service/Service';
+//m:SessionCreateResponse[1]/m:ResponseCode[1]/text()</path>
+            <content>0</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="XPath Match" id="c8ec25e8-57e5-4888-93b8-37e7bf17aa4d" name="Check for existence of [m:SessionKey]">
+          <con:configuration>
+            <path>declare namespace m='http://services.trustvesta.com/MobilityUS_Service/Service';
+exists( //m:SessionCreateResponse/m:SessionKey)</path>
+            <content>true</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig action="SessionCreate" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+        <con:environmentSpec>
+          <con:entry environmentId="1fdcf028-54a3-4eac-be85-401de090030d">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="5214331a-f93a-4dbb-8438-d770e5d5ca80">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" id="ae92eb6d-b5a4-4e7e-adb6-87bc0576f42b" name="ActDelayOrderPrepareWithNewCard">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>ServiceSoapBinding</con:interface>
+      <con:operation>ActDelayOrderPrepareWithNewCard</con:operation>
+      <con:request name="ActDelayOrderPrepareWithNewCard" id="61ba5d73-3016-4e31-a2dc-4aa9d5ebfdae">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>http://localhost:8020/MobilityUS_Service/Service</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.trustvesta.com/MobilityUS_Service/Service">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:ActDelayOrderPrepareWithNewCardRequest>
+         <!--You may enter the following 15 items in any order-->
+         <ser:SessionKey>${SessionCreate#Response#declare namespace m='http://services.trustvesta.com/MobilityUS_Service/Service'; //m:SessionCreateResponse[1]/m:SessionKey[1]}</ser:SessionKey>
+         <ser:ChargeAccountNumber>4001415157588014</ser:ChargeAccountNumber>
+         <ser:ChargeExpirationMMYY>${CardInfo#ChargeExpirationDate}</ser:ChargeExpirationMMYY>
+         <ser:CustomerFirstName>${CustomerInfo#cardHolderFirstName}</ser:CustomerFirstName>
+         <ser:CustomerLastName>${CustomerInfo#cardHolderLastName}</ser:CustomerLastName>
+         <ser:CustomerEmailAddress>test@automated.test</ser:CustomerEmailAddress>
+         <ser:CustomerAddressLine1>${CustomerInfo#cardHolderAddressLine1}</ser:CustomerAddressLine1>
+         <!--Optional:-->
+         <ser:CustomerAddressLine2>${CustomerInfo#cardHolderAddressLine2}</ser:CustomerAddressLine2>
+         <ser:CustomerCity>${CustomerInfo#cardHolderCity}</ser:CustomerCity>
+         <!--Optional:-->
+         <ser:CustomerRegion>${CustomerInfo#cardHolderState}</ser:CustomerRegion>
+         <!--Optional:-->
+         <ser:CustomerPostalCode>${CustomerInfo#cardHolderPostalCode}</ser:CustomerPostalCode>
+         <ser:CustomerCountry>${CustomerInfo#cardHolderCountryCodeUS}</ser:CustomerCountry>
+         <ser:DeliveryTypeCD>3</ser:DeliveryTypeCD>
+         <ser:ConsentAgreementID xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+         <ser:ActDelayOrderPrepareWithNewCard_LineItemsRows>
+            <!--Optional:-->
+            <ser:ActDelayOrderPrepareWithNewCard_LineItems>
+               <!--You may enter the following 3 items in any order-->
+               <ser:Amount>${CustomerInfo#cardHolderAmount}</ser:Amount>
+               <ser:ProductTypeCD>1</ser:ProductTypeCD>
+               <ser:ProductCode>gpup</ser:ProductCode>
+            </ser:ActDelayOrderPrepareWithNewCard_LineItems>
+         </ser:ActDelayOrderPrepareWithNewCard_LineItemsRows>
+      </ser:ActDelayOrderPrepareWithNewCardRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="XPath Match" id="bc5bc3b1-422f-4f04-b8e2-f051f1c22f12" name="Match content of [m:IsValidReasonCD]">
+          <con:configuration>
+            <path>declare namespace m='http://services.trustvesta.com/MobilityUS_Service/Service';
+//m:ActDelayOrderPrepareWithNewCardResponse[1]/m:IsValidReasonCD[1]/text()</path>
+            <content>0</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="XPath Match" id="072a5e5c-d069-46cd-ae86-6b11f5491f2b" name="Check for existence of [m:PaymentDeviceTypeName]">
+          <con:configuration>
+            <path>declare namespace m='http://services.trustvesta.com/MobilityUS_Service/Service';
+exists( //m:ActDelayOrderPrepareWithNewCardResponse/m:PaymentDeviceTypeName)</path>
+            <content>true</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="XPath Match" id="666d1268-c01f-48ce-b3bf-8a1038665e2b" name="Match content of [m:ResponseCode]">
+          <con:configuration>
+            <path>declare namespace m='http://services.trustvesta.com/MobilityUS_Service/Service';
+//m:ActDelayOrderPrepareWithNewCardResponse[1]/m:ResponseCode[1]/text()</path>
+            <content>0</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="XPath Match" id="cd2c2ffc-3c0a-40e0-8616-b559dd8318d7" name="Check for existence of [m:SessionKey]">
+          <con:configuration>
+            <path>declare namespace m='http://services.trustvesta.com/MobilityUS_Service/Service';
+exists( //m:ActDelayOrderPrepareWithNewCardResponse/m:SessionKey)</path>
+            <content>true</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="XPath Match" id="be223431-32a8-405c-9b1f-5baeeec8ca3c" name="Check for existence of [m:IsValidCard]">
+          <con:configuration>
+            <path>declare namespace m='http://services.trustvesta.com/MobilityUS_Service/Service';
+exists( //m:ActDelayOrderPrepareWithNewCardResponse/m:IsValidCard)</path>
+            <content>true</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="XPath Match" id="8b172508-aa33-4854-87aa-c63aae099273" name="Check for existence of [m:PaymentDeviceCVNLength]">
+          <con:configuration>
+            <path>declare namespace m='http://services.trustvesta.com/MobilityUS_Service/Service';
+exists( //m:ActDelayOrderPrepareWithNewCardResponse/m:PaymentDeviceCVNLength)</path>
+            <content>true</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig action="ActDelayOrderPrepareWithNewCard" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+        <con:environmentSpec>
+          <con:entry environmentId="1fdcf028-54a3-4eac-be85-401de090030d">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="5214331a-f93a-4dbb-8438-d770e5d5ca80">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" id="9078b85a-f2c0-4f86-89eb-5e7a4fa4bf29" name="ActDelayAuthorize">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>ServiceSoapBinding</con:interface>
+      <con:operation>ActDelayAuthorize</con:operation>
+      <con:request name="ActDelayAuthorize" id="3b45c829-6171-4121-8946-8b14ef296219">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>http://localhost:8020/MobilityUS_Service/Service</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.trustvesta.com/MobilityUS_Service/Service">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:ActDelayAuthorizeRequest>
+         <!--You may enter the following 8 items in any order-->
+         <!--Optional:-->
+         <ser:AddToPDOF>true</ser:AddToPDOF>
+         <!--Optional:-->
+         <ser:APAgreement>true</ser:APAgreement>
+         <!--Optional:-->
+         <ser:ChargeCVN>${#[DataGenerator#Visa Card Generator]#ChargeCVV}</ser:ChargeCVN>
+         <!--Optional:-->
+         <ser:PromoAmount>${CustomerInfo#cardHolderPromoAmount}</ser:PromoAmount>
+         <!--Optional:-->
+         <ser:ConsumerIP>1.1.1.1</ser:ConsumerIP>
+         <!--Optional:-->
+         <ser:StoreIP xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+         <!--Optional:-->
+         <ser:StoreID xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+         <ser:SessionKey>${SessionCreate#Response#declare namespace ser='http://services.trustvesta.com/MobilityUS_Service/Service'; //ser:SessionCreateResponse[1]/ser:SessionKey[1]}</ser:SessionKey>
+      </ser:ActDelayAuthorizeRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="XPath Match" id="0938cee1-bb71-4c48-a1a1-729a3fa51754" name="Match content of [m:ResponseCode]">
+          <con:configuration>
+            <path>declare namespace m='http://services.trustvesta.com/MobilityUS_Service/Service';
+//m:ActDelayAuthorizeResponse[1]/m:ResponseCode[1]/text()</path>
+            <content>0</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="XPath Match" id="b4610082-0bc9-4970-a4a4-cccc3450d45a" name="Check for existence of [m:ResponseText]">
+          <con:configuration>
+            <path>declare namespace m='http://services.trustvesta.com/MobilityUS_Service/Service';
+exists( //m:ActDelayAuthorizeResponse/m:ResponseText)</path>
+            <content>true</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="XPath Match" id="42bf39c4-56dd-4b38-af5b-3ea645849487" name="Check for existence of [m:SessionKey]">
+          <con:configuration>
+            <path>declare namespace m='http://services.trustvesta.com/MobilityUS_Service/Service';
+exists( //m:ActDelayAuthorizeResponse/m:SessionKey)</path>
+            <content>true</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="XPath Match" id="9d591927-fbc7-47c3-a4f7-337c3318b8dc" name="Check for existence of [m:ActDelayID]">
+          <con:configuration>
+            <path>declare namespace m='http://services.trustvesta.com/MobilityUS_Service/Service';
+exists( //m:ActDelayAuthorizeResponse/m:ActDelayID)</path>
+            <content>true</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="XPath Match" id="b1423f63-8f4a-4e14-b80f-a4547aefcfde" name="Match content of [m:ActDelayStatusCD]">
+          <con:configuration>
+            <path>declare namespace m='http://services.trustvesta.com/MobilityUS_Service/Service';
+//m:ActDelayAuthorizeResponse[1]/m:ActDelayStatusCD[1]/text()</path>
+            <content>1</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig action="ActDelayAuthorize" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+        <con:environmentSpec>
+          <con:entry environmentId="1fdcf028-54a3-4eac-be85-401de090030d">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="5214331a-f93a-4dbb-8438-d770e5d5ca80">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" id="81a7cf17-27f8-498f-b0f7-9ede977fab61" name="NewSessionCreate">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>ServiceSoapBinding</con:interface>
+      <con:operation>SessionCreate</con:operation>
+      <con:request name="NewSessionCreate" id="c30f4b6d-a3cb-477b-8ed0-ad5a96c607e1">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>http://localhost:8020/MobilityUS_Service/Service</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.trustvesta.com/MobilityUS_Service/Service">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:SessionCreateRequest>
+         <!--You may enter the following 5 items in any order-->
+         <!--Optional:-->
+         <ser:PartnerChannelCode>${#Project#PartnerChannelCode}</ser:PartnerChannelCode>
+         <!--Optional:-->
+         <ser:PartnerChannelDescriptor>AutomatedTest</ser:PartnerChannelDescriptor>
+         <!--Optional:-->
+         <ser:VendorID>${#Project#VendorID}</ser:VendorID>
+         <!--Optional:-->
+         <ser:VendorPassword>${#Project#VendorPassword}</ser:VendorPassword>
+         <!--Optional:-->
+         <ser:AgentID>${#[DataGenerator#CustomerInformation#CustomerInfo]#MDN}</ser:AgentID>
+      </ser:SessionCreateRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="XPath Match" id="c5fd8e68-8797-41b3-95f4-3241380edb45" name="Match content of [m:ResponseCode]">
+          <con:configuration>
+            <path>declare namespace m='http://services.trustvesta.com/MobilityUS_Service/Service';
+//m:SessionCreateResponse[1]/m:ResponseCode[1]/text()</path>
+            <content>0</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="XPath Match" id="c8ec25e8-57e5-4888-93b8-37e7bf17aa4d" name="Check for existence of [m:SessionKey]">
+          <con:configuration>
+            <path>declare namespace m='http://services.trustvesta.com/MobilityUS_Service/Service';
+exists( //m:SessionCreateResponse/m:SessionKey)</path>
+            <content>true</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig action="SessionCreate" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+        <con:environmentSpec>
+          <con:entry environmentId="1fdcf028-54a3-4eac-be85-401de090030d">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="5214331a-f93a-4dbb-8438-d770e5d5ca80">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" id="23425a32-1c74-4729-835b-fbab2b15238a" name="ActDelayQuery">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>ServiceSoapBinding</con:interface>
+      <con:operation>ActDelayQuery</con:operation>
+      <con:request name="ActDelayQuery" id="25e9b107-6fa8-4f51-88c1-617d3c3aa6eb">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>http://localhost:8020/MobilityUS_Service/Service</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.trustvesta.com/MobilityUS_Service/Service">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:ActDelayQueryRequest>
+         <!--You may enter the following 2 items in any order-->
+         <!--Optional:-->
+         <ser:ActDelayID>${ActDelayAuthorize#Response#declare namespace ser='http://services.trustvesta.com/MobilityUS_Service/Service'; //ser:ActDelayAuthorizeResponse[1]/ser:ActDelayID[1]}</ser:ActDelayID>
+         <ser:SessionKey>${NewSessionCreate#Response#declare namespace m='http://services.trustvesta.com/MobilityUS_Service/Service'; //m:SessionCreateResponse[1]/m:SessionKey[1]}</ser:SessionKey>
+      </ser:ActDelayQueryRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="XPath Match" id="bf889e6d-9e76-44e6-ac9d-6052eb30249a" name="Match content of [m:ResponseCode]">
+          <con:configuration>
+            <path>declare namespace m='http://services.trustvesta.com/MobilityUS_Service/Service';
+//m:ActDelayQueryResponse[1]/m:ResponseCode[1]/text()</path>
+            <content>0</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig action="ActDelayQuery" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+        <con:environmentSpec>
+          <con:entry environmentId="1fdcf028-54a3-4eac-be85-401de090030d">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="5214331a-f93a-4dbb-8438-d770e5d5ca80">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" id="5bf7af1d-d19a-4da5-a595-4a9c3fb422d2" name="ActDelayConvert">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>ServiceSoapBinding</con:interface>
+      <con:operation>ActDelayConvert</con:operation>
+      <con:request name="ActDelayConvert" id="e9650ed9-7038-4dd7-98c2-c9a232c62d00">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>http://localhost:8020/MobilityUS_Service/Service</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.trustvesta.com/MobilityUS_Service/Service">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:ActDelayConvertRequest>
+         <ser:ActDelayID>${ActDelayAuthorize#Response#declare namespace ser='http://services.trustvesta.com/MobilityUS_Service/Service'; //ser:ActDelayAuthorizeResponse[1]/ser:ActDelayID[1]}</ser:ActDelayID>
+         <ser:MDN>${CustomerInfo#MDN}</ser:MDN>
+         <ser:SessionKey>${NewSessionCreate#Response#declare namespace m='http://services.trustvesta.com/MobilityUS_Service/Service'; //m:SessionCreateResponse[1]/m:SessionKey[1]}</ser:SessionKey>
+      </ser:ActDelayConvertRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="XPath Match" id="47e69eb7-10f6-4e83-b297-f09c1d86621c" name="Match content of [m:ResponseCode]">
+          <con:configuration>
+            <path>declare namespace m='http://services.trustvesta.com/MobilityUS_Service/Service';
+//m:ActDelayConvertResponse[1]/m:ResponseCode[1]/text()</path>
+            <content>0</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="XPath Match" id="9ee6265e-fa42-495f-9c45-f9dfec92b6f0" name="Check for existence of [m:OrderID]">
+          <con:configuration>
+            <path>declare namespace m='http://services.trustvesta.com/MobilityUS_Service/Service';
+exists( //m:ActDelayConvertResponse/m:OrderID)</path>
+            <content>true</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="XPath Match" id="9d0bf14d-59b9-469f-adb8-d4307936a5f1" name="Check for existence of [m:OrderStatusCD]">
+          <con:configuration>
+            <path>declare namespace m='http://services.trustvesta.com/MobilityUS_Service/Service';
+exists( //m:ActDelayConvertResponse/m:OrderStatusCD)</path>
+            <content>2</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig action="ActDelayConvert" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+        <con:environmentSpec>
+          <con:entry environmentId="1fdcf028-54a3-4eac-be85-401de090030d">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="5214331a-f93a-4dbb-8438-d770e5d5ca80">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>549481d8-384d-431b-b3b2-240a7273131a</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>4d734b79-c68c-4e92-a208-5eda2c43fe25</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:environmentSpec>
+    <con:entry environmentId="5214331a-f93a-4dbb-8438-d770e5d5ca80">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:testCase>

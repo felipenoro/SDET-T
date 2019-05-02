@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation id="d4dfb075-0d0b-4271-8050-4201fcffd95a" isOneWay="false" action="OrderHistory" name="OrderHistory" bindingOperationName="OrderHistory" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="d4dfb075-0d0b-4271-8050-4201fcffd95afileName">OrderHistory</con:setting>
+  </con:settings>
+  <con:call id="17eabef0-caa7-441c-bfc5-7d0c0328d8e2" name="Request 1">
+    <con:settings/>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>http://localhost:8020/MobilityUS_Service/Service</con:endpoint>
+    <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.trustvesta.com/MobilityUS_Service/Service">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ser:OrderHistoryRequest>\r
+         <!--You may enter the following 5 items in any order-->\r
+         <ser:SessionKey>?</ser:SessionKey>\r
+         <ser:StartRecord>?</ser:StartRecord>\r
+         <ser:PageSize>?</ser:PageSize>\r
+         <!--Optional:-->\r
+         <ser:StartDate>?</ser:StartDate>\r
+         <!--Optional:-->\r
+         <ser:EndDate>?</ser:EndDate>\r
+      </ser:OrderHistoryRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="OrderHistory"/>
+    <con:environmentSpec>
+      <con:entry environmentId="1fdcf028-54a3-4eac-be85-401de090030d">
+        <con:authProfile>No Authorization</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="5214331a-f93a-4dbb-8438-d770e5d5ca80">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
+  </con:call>
+  <con:environmentSpec>
+    <con:entry environmentId="5214331a-f93a-4dbb-8438-d770e5d5ca80">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:operation>

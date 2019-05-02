@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="50ac191b-6b66-4551-bf5f-8632b09c9736" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="CustomerInformation" searchProperties="true" timeout="0" disabled="true" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="b5c93b53-3481-4e9a-a8b6-b70102ad4831fileName">CustomerInformation</con:setting>
+    <con:setting id="50ac191b-6b66-4551-bf5f-8632b09c9736fileName">CustomerInformation</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="datasource" name="CustomerInfo" id="6b8f1a84-a856-4d96-ab82-e3cc50b50969">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="Data Generator">
+        <con:configuration>
+          <generatedDataCount>1</generatedDataCount>
+          <generatorsTotalNumber>11</generatorsTotalNumber>
+          <lastSelectedProperty>6</lastSelectedProperty>
+          <GeneratorType0>ADDRESS</GeneratorType0>
+          <PropertyName0>CardHolderAddressLine1</PropertyName0>
+          <repetitionCountCardHolderAddressLine1>0</repetitionCountCardHolderAddressLine1>
+          <repeatValuesCardHolderAddressLine1>false</repeatValuesCardHolderAddressLine1>
+          <AddressDataGeneratorRestrictLength>false</AddressDataGeneratorRestrictLength>
+          <AddressDataGeneratorMaxLength>20</AddressDataGeneratorMaxLength>
+          <GeneratorType1>ADDRESS</GeneratorType1>
+          <PropertyName1>CardHolderAddressLine2</PropertyName1>
+          <repetitionCountCardHolderAddressLine2>0</repetitionCountCardHolderAddressLine2>
+          <repeatValuesCardHolderAddressLine2>false</repeatValuesCardHolderAddressLine2>
+          <AddressDataGeneratorRestrictLength>false</AddressDataGeneratorRestrictLength>
+          <AddressDataGeneratorMaxLength>20</AddressDataGeneratorMaxLength>
+          <GeneratorType2>CITY</GeneratorType2>
+          <PropertyName2>CardHolderCity</PropertyName2>
+          <repetitionCountCardHolderCity>0</repetitionCountCardHolderCity>
+          <repeatValuesCardHolderCity>false</repeatValuesCardHolderCity>
+          <GeneratorType3>CUSTOM</GeneratorType3>
+          <PropertyName3>CardHolderCountryCodeUS</PropertyName3>
+          <repetitionCountCardHolderCountryCodeUS>0</repetitionCountCardHolderCountryCodeUS>
+          <repeatValuesCardHolderCountryCodeUS>false</repeatValuesCardHolderCountryCodeUS>
+          <CustomStringDataGeneratorFormatCardHolderCountryCodeUS>US</CustomStringDataGeneratorFormatCardHolderCountryCodeUS>
+          <GeneratorType4>NAME</GeneratorType4>
+          <PropertyName4>CardHolderFirstName</PropertyName4>
+          <repetitionCountCardHolderFirstName>0</repetitionCountCardHolderFirstName>
+          <repeatValuesCardHolderFirstName>false</repeatValuesCardHolderFirstName>
+          <NameTypeName4>FirstName</NameTypeName4>
+          <NameGenderName4>Any</NameGenderName4>
+          <GeneratorType5>NAME</GeneratorType5>
+          <PropertyName5>CardHolderLastName</PropertyName5>
+          <repetitionCountCardHolderLastName>0</repetitionCountCardHolderLastName>
+          <repeatValuesCardHolderLastName>false</repeatValuesCardHolderLastName>
+          <NameTypeName5>LastName</NameTypeName5>
+          <NameGenderName5>Any</NameGenderName5>
+          <GeneratorType6>USZIP</GeneratorType6>
+          <PropertyName6>CardHolderPostalCode</PropertyName6>
+          <repetitionCountCardHolderPostalCode>0</repetitionCountCardHolderPostalCode>
+          <repeatValuesCardHolderPostalCode>false</repeatValuesCardHolderPostalCode>
+          <USZipCodesDataGeneratorFormatCardHolderPostalCode>XXXXX</USZipCodesDataGeneratorFormatCardHolderPostalCode>
+          <GeneratorType7>STATE</GeneratorType7>
+          <PropertyName7>CardHolderState</PropertyName7>
+          <repetitionCountCardHolderState>0</repetitionCountCardHolderState>
+          <repeatValuesCardHolderState>false</repeatValuesCardHolderState>
+          <StatesCountryCardHolderState>United States</StatesCountryCardHolderState>
+          <StatesFormatCardHolderState>Abbreviated</StatesFormatCardHolderState>
+          <GeneratorType8>INT</GeneratorType8>
+          <PropertyName8>Amount</PropertyName8>
+          <repetitionCountAmount>0</repetitionCountAmount>
+          <repeatValuesAmount>false</repeatValuesAmount>
+          <IntegerDataGeneratorMinValueAmount>100</IntegerDataGeneratorMinValueAmount>
+          <IntegerDataGeneratorMaxValueAmount>700</IntegerDataGeneratorMaxValueAmount>
+          <IntegerDataGeneratorStepValueAmount>1</IntegerDataGeneratorStepValueAmount>
+          <IntegerDataGeneratorConsequentValuesAmount>false</IntegerDataGeneratorConsequentValuesAmount>
+          <GeneratorType9>INT</GeneratorType9>
+          <PropertyName9>PromoAmount</PropertyName9>
+          <repetitionCountPromoAmount>0</repetitionCountPromoAmount>
+          <repeatValuesPromoAmount>false</repeatValuesPromoAmount>
+          <IntegerDataGeneratorMinValuePromoAmount>1</IntegerDataGeneratorMinValuePromoAmount>
+          <IntegerDataGeneratorMaxValuePromoAmount>99</IntegerDataGeneratorMaxValuePromoAmount>
+          <IntegerDataGeneratorStepValuePromoAmount>1</IntegerDataGeneratorStepValuePromoAmount>
+          <IntegerDataGeneratorConsequentValuesPromoAmount>false</IntegerDataGeneratorConsequentValuesPromoAmount>
+          <GeneratorType10>STR</GeneratorType10>
+          <PropertyName10>MDN</PropertyName10>
+          <repetitionCountMDN>0</repetitionCountMDN>
+          <repeatValuesMDN>false</repeatValuesMDN>
+          <PasswordDataGeneratorUseSpacesMDN>false</PasswordDataGeneratorUseSpacesMDN>
+          <PasswordDataGeneratorUsePunctuationMarksMDN>false</PasswordDataGeneratorUsePunctuationMarksMDN>
+          <PasswordDataGeneratorUseLettersMDN>false</PasswordDataGeneratorUseLettersMDN>
+          <PasswordDataGeneratorUseDigitsMDN>true</PasswordDataGeneratorUseDigitsMDN>
+          <PasswordDataGeneratorMaxCharacterCountMDN>10</PasswordDataGeneratorMaxCharacterCountMDN>
+          <PasswordDataGeneratorMinCharacterCountMDN>10</PasswordDataGeneratorMinCharacterCountMDN>
+          <escapeSpaceSequence/>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>CardHolderAddressLine1</con:property>
+      <con:property>CardHolderAddressLine2</con:property>
+      <con:property>CardHolderCity</con:property>
+      <con:property>CardHolderCountryCodeUS</con:property>
+      <con:property>CardHolderFirstName</con:property>
+      <con:property>CardHolderLastName</con:property>
+      <con:property>CardHolderPostalCode</con:property>
+      <con:property>CardHolderState</con:property>
+      <con:property>Amount</con:property>
+      <con:property>PromoAmount</con:property>
+      <con:property>MDN</con:property>
+      <con:startRow/>
+      <con:endRow/>
+      <con:recordsPerIteration>1</con:recordsPerIteration>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:trimValues>false</con:trimValues>
+      <con:entitizeValues>false</con:entitizeValues>
+      <con:restartOnRun>true</con:restartOnRun>
+      <con:expandProperties>false</con:expandProperties>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="DataReturn" id="27a19246-0f84-4e81-80a5-1f3987382134">
+    <con:settings/>
+    <con:config>
+      <script>def cardHolderAddressLine1 = context.expand( '${CustomerInfo#CardHolderAddressLine1}' )
+def cardHolderAddressLine2 = context.expand( '${CustomerInfo#CardHolderAddressLine2}' )
+def cardHolderCity = context.expand( '${CustomerInfo#CardHolderCity}' )
+def cardHolderCountryCodeUS = context.expand( '${CustomerInfo#CardHolderCountryCodeUS}' )
+def cardHolderFirstName = context.expand( '${CustomerInfo#CardHolderFirstName}' )
+def cardHolderLastName = context.expand( '${CustomerInfo#CardHolderLastName}' )
+def cardHolderPostalCode = context.expand( '${CustomerInfo#CardHolderPostalCode}' )
+def cardHolderState = context.expand( '${CustomerInfo#CardHolderState}' )
+
+
+if(cardHolderAddressLine1.length() >30){
+	cardHolderAddressLine1 =  cardHolderAddressLine1.substring(0,30);
+}
+
+if(cardHolderAddressLine2.length() >30){
+	cardHolderAddressLine2 =  cardHolderAddressLine2.substring(0,30);
+}
+
+testRunner.testCase.setPropertyValue('cardHolderAddressLine1', cardHolderAddressLine1)
+testRunner.testCase.setPropertyValue('cardHolderAddressLine2', cardHolderAddressLine2)
+testRunner.testCase.setPropertyValue('cardHolderCity', cardHolderCity)
+testRunner.testCase.setPropertyValue('cardHolderCountryCodeUS', cardHolderCountryCodeUS)
+testRunner.testCase.setPropertyValue('cardHolderFirstName', cardHolderFirstName)
+testRunner.testCase.setPropertyValue('cardHolderLastName', cardHolderLastName)
+testRunner.testCase.setPropertyValue('cardHolderPostalCode', cardHolderPostalCode)
+testRunner.testCase.setPropertyValue('cardHolderState', cardHolderState)
+testRunner.testCase.setPropertyValue('cardHolderAmount', context.expand( '${CustomerInfo#Amount}' ))
+testRunner.testCase.setPropertyValue('cardHolderPromoAmount', context.expand( '${CustomerInfo#PromoAmount}' ))
+testRunner.testCase.setPropertyValue('MDN', context.expand( '${CustomerInfo#MDN}' ))</script>
+    </con:config>
+  </con:testStep>
+  <con:properties>
+    <con:property>
+      <con:name>cardHolderAddressLine1</con:name>
+      <con:value>71506 Guerrero Blvd.</con:value>
+    </con:property>
+    <con:property>
+      <con:name>cardHolderAddressLine2</con:name>
+      <con:value>9259 Bahamas Blvd.</con:value>
+    </con:property>
+    <con:property>
+      <con:name>cardHolderCity</con:name>
+      <con:value>Laguna Hills</con:value>
+    </con:property>
+    <con:property>
+      <con:name>cardHolderCountryCodeUS</con:name>
+      <con:value>US</con:value>
+    </con:property>
+    <con:property>
+      <con:name>cardHolderFirstName</con:name>
+      <con:value>Omar</con:value>
+    </con:property>
+    <con:property>
+      <con:name>cardHolderLastName</con:name>
+      <con:value>Oconnor</con:value>
+    </con:property>
+    <con:property>
+      <con:name>cardHolderPostalCode</con:name>
+      <con:value>01101</con:value>
+    </con:property>
+    <con:property>
+      <con:name>cardHolderAmount</con:name>
+      <con:value>624</con:value>
+    </con:property>
+    <con:property>
+      <con:name>cardHolderState</con:name>
+      <con:value>MN</con:value>
+    </con:property>
+    <con:property>
+      <con:name>MDN</con:name>
+      <con:value>6628581717</con:value>
+    </con:property>
+    <con:property>
+      <con:name>cardHolderPromoAmount</con:name>
+      <con:value>62</con:value>
+    </con:property>
+  </con:properties>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>679258cf-eb38-4dc6-95fe-7d1c227caad8</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:environmentSpec>
+    <con:entry environmentId="d5f55bc1-32c5-403e-aa11-462da119e2c6">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="5214331a-f93a-4dbb-8438-d770e5d5ca80">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:testCase>

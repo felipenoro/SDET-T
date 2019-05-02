@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation id="8b188e49-0cff-41bf-a56b-0bf320da816d" isOneWay="false" action="AnonymousChargeOrderPrepareWithToken" name="AnonymousChargeOrderPrepareWithToken" bindingOperationName="AnonymousChargeOrderPrepareWithToken" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="8b188e49-0cff-41bf-a56b-0bf320da816dfileName">AnonymousChargeOrderPrepareWithToken</con:setting>
+  </con:settings>
+  <con:call id="279aba75-a135-4f15-8492-47ceb36d9633" name="Request 1">
+    <con:settings/>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>http://localhost:8020/MobilityUS_Service/Service</con:endpoint>
+    <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.trustvesta.com/MobilityUS_Service/Service">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ser:AnonymousChargeOrderPrepareWithTokenRequest>\r
+         <!--You may enter the following 13 items in any order-->\r
+         <ser:AnonymousSessionKey>?</ser:AnonymousSessionKey>\r
+         <ser:ChargeAccountNumberToken>?</ser:ChargeAccountNumberToken>\r
+         <ser:ChargeExpirationMMYY>?</ser:ChargeExpirationMMYY>\r
+         <ser:PDFirstName>?</ser:PDFirstName>\r
+         <ser:PDLastName>?</ser:PDLastName>\r
+         <ser:PDAddressLine1>?</ser:PDAddressLine1>\r
+         <!--Optional:-->\r
+         <ser:PDAddressLine2>?</ser:PDAddressLine2>\r
+         <ser:PDCity>?</ser:PDCity>\r
+         <!--Optional:-->\r
+         <ser:PDRegion>?</ser:PDRegion>\r
+         <!--Optional:-->\r
+         <ser:PDPostalCode>?</ser:PDPostalCode>\r
+         <ser:PDCountryCode>?</ser:PDCountryCode>\r
+         <!--Optional:-->\r
+         <ser:OriginatingIPAddress>?</ser:OriginatingIPAddress>\r
+         <ser:AnonymousChargeOrderPrepareWithToken_LineItemsRows>\r
+            <!--Zero or more repetitions:-->\r
+            <ser:AnonymousChargeOrderPrepareWithToken_LineItems>\r
+               <!--You may enter the following 3 items in any order-->\r
+               <ser:Amount>?</ser:Amount>\r
+               <ser:ProductTypeCD>?</ser:ProductTypeCD>\r
+               <ser:ProductCode>?</ser:ProductCode>\r
+            </ser:AnonymousChargeOrderPrepareWithToken_LineItems>\r
+         </ser:AnonymousChargeOrderPrepareWithToken_LineItemsRows>\r
+      </ser:AnonymousChargeOrderPrepareWithTokenRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="AnonymousChargeOrderPrepareWithToken"/>
+    <con:environmentSpec>
+      <con:entry environmentId="1fdcf028-54a3-4eac-be85-401de090030d">
+        <con:authProfile>No Authorization</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="5214331a-f93a-4dbb-8438-d770e5d5ca80">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
+  </con:call>
+  <con:environmentSpec>
+    <con:entry environmentId="5214331a-f93a-4dbb-8438-d770e5d5ca80">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:operation>
