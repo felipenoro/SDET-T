@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation id="12b20a1a-d8af-47e0-a702-72bdd7e82b1e" isOneWay="false" action="ProcessChargeOrderWithAutoPayEnrollment" name="ProcessChargeOrderWithAutoPayEnrollment" bindingOperationName="ProcessChargeOrderWithAutoPayEnrollment" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="12b20a1a-d8af-47e0-a702-72bdd7e82b1efileName">ProcessChargeOrderWithAutoPayEnrollment</con:setting>
+  </con:settings>
+  <con:call id="0b43a072-0d93-4220-850e-6b46318680b5" name="Request 1">
+    <con:settings/>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>http://localhost:8020/MobilityUS_Service/Service</con:endpoint>
+    <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.trustvesta.com/MobilityUS_Service/Service">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ser:ProcessChargeOrderWithAutoPayEnrollmentRequest>\r
+         <!--You may enter the following 5 items in any order-->\r
+         <ser:SessionKey>?</ser:SessionKey>\r
+         <!--Optional:-->\r
+         <ser:ChargeCVN>?</ser:ChargeCVN>\r
+         <!--Optional:-->\r
+         <ser:PDSSNLast4>?</ser:PDSSNLast4>\r
+         <!--Optional:-->\r
+         <ser:EmailAddress>?</ser:EmailAddress>\r
+         <!--Optional:-->\r
+         <ser:WebSessionID>?</ser:WebSessionID>\r
+      </ser:ProcessChargeOrderWithAutoPayEnrollmentRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="ProcessChargeOrderWithAutoPayEnrollment"/>
+    <con:environmentSpec>
+      <con:entry environmentId="1fdcf028-54a3-4eac-be85-401de090030d">
+        <con:authProfile>No Authorization</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="5214331a-f93a-4dbb-8438-d770e5d5ca80">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
+  </con:call>
+  <con:environmentSpec>
+    <con:entry environmentId="5214331a-f93a-4dbb-8438-d770e5d5ca80">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:operation>

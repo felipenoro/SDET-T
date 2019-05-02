@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation id="9e105030-6b7a-41d5-bc2f-9b5f312b31c8" isOneWay="false" action="GetVersion" name="GetVersion" bindingOperationName="GetVersion" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="9e105030-6b7a-41d5-bc2f-9b5f312b31c8fileName">GetVersion</con:setting>
+  </con:settings>
+  <con:call id="4ef3c034-8a27-485a-9c01-8fec4d48b4b4" name="Request 1">
+    <con:settings/>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>http://localhost:8020/MobilityUS_Service/Service</con:endpoint>
+    <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.trustvesta.com/MobilityUS_Service/Service">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ser:GetVersionRequest/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="GetVersion"/>
+    <con:environmentSpec>
+      <con:entry environmentId="1fdcf028-54a3-4eac-be85-401de090030d">
+        <con:authProfile>No Authorization</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="5214331a-f93a-4dbb-8438-d770e5d5ca80">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
+  </con:call>
+  <con:environmentSpec>
+    <con:entry environmentId="5214331a-f93a-4dbb-8438-d770e5d5ca80">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:operation>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="cecb3503-55ba-4fc5-8b4a-12379757307f" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="SessionCreate_GeneralSystemFailure" searchProperties="true" timeout="0" disabled="true" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="472af858-2a56-499b-8382-7afc2a417f84fileName">SessionCreate</con:setting>
+    <con:setting id="79f8b229-94d1-4a6d-9bba-c7341da8cf17fileName">SessionCreate_GeneralSystemFailure</con:setting>
+    <con:setting id="cecb3503-55ba-4fc5-8b4a-12379757307ffileName">SessionCreate_GeneralSystemFailure</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="calltestcase" name="CustomerInfo" id="f683328e-abe9-41a0-90f7-76633661b649">
+    <con:settings/>
+    <con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:targetTestCase>50ac191b-6b66-4551-bf5f-8632b09c9736</con:targetTestCase>
+      <con:properties>
+        <con:property>
+          <con:name>cardHolderAddressLine1</con:name>
+        </con:property>
+        <con:property>
+          <con:name>cardHolderAddressLine2</con:name>
+        </con:property>
+        <con:property>
+          <con:name>cardHolderCity</con:name>
+        </con:property>
+        <con:property>
+          <con:name>cardHolderCountryCodeUS</con:name>
+        </con:property>
+        <con:property>
+          <con:name>cardHolderFirstName</con:name>
+        </con:property>
+        <con:property>
+          <con:name>cardHolderLastName</con:name>
+        </con:property>
+        <con:property>
+          <con:name>cardHolderPostalCode</con:name>
+        </con:property>
+        <con:property>
+          <con:name>cardHolderAmount</con:name>
+        </con:property>
+        <con:property>
+          <con:name>cardHolderState</con:name>
+        </con:property>
+        <con:property>
+          <con:name>MDN</con:name>
+          <con:value>796-201-0889</con:value>
+        </con:property>
+        <con:property>
+          <con:name>cardHolderPromoAmount</con:name>
+        </con:property>
+      </con:properties>
+      <con:returnProperties>
+        <con:entry>MDN</con:entry>
+      </con:returnProperties>
+      <con:runMode>PARALLELL</con:runMode>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" id="03c29ca8-a21b-4682-85f7-26b7123a27e3" name="SessionCreate">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>ServiceSoapBinding</con:interface>
+      <con:operation>SessionCreate</con:operation>
+      <con:request name="SessionCreate" id="c30f4b6d-a3cb-477b-8ed0-ad5a96c607e1">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>http://localhost:8020/MobilityUS_Service/Service</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.trustvesta.com/MobilityUS_Service/Service">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:SessionCreateRequest>
+         <!--You may enter the following 5 items in any order-->
+         <!--Optional:-->
+         <ser:PartnerChannelCode>${#Project#PartnerChannelCode}</ser:PartnerChannelCode>
+         <!--Optional:-->
+         <ser:PartnerChannelDescriptor>AutomatedTest</ser:PartnerChannelDescriptor>
+         <!--Optional:-->
+         <ser:VendorID>${#Project#VendorID}</ser:VendorID>
+         <!--Optional:-->
+         <ser:VendorPassword>${#Project#VendorPassword}</ser:VendorPassword>
+         <!--Optional:-->
+         <ser:AgentID>${#[DataGenerator#CustomerInformation#CustomerInfo]#MDN}</ser:AgentID>
+      </ser:SessionCreateRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig action="SessionCreate" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+        <con:environmentSpec>
+          <con:entry environmentId="1fdcf028-54a3-4eac-be85-401de090030d">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="5214331a-f93a-4dbb-8438-d770e5d5ca80">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:environmentSpec>
+    <con:entry environmentId="5214331a-f93a-4dbb-8438-d770e5d5ca80">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:testCase>

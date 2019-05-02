@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation id="02fe07b8-7bd8-415a-a6a7-36d118622ff3" isOneWay="false" action="ActDelayAuthorize" name="ActDelayAuthorize" bindingOperationName="ActDelayAuthorize" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="02fe07b8-7bd8-415a-a6a7-36d118622ff3fileName">ActDelayAuthorize</con:setting>
+  </con:settings>
+  <con:call id="242fed9b-3251-4631-81f5-230d45935ea4" name="Request 1">
+    <con:settings/>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>http://localhost:8020/MobilityUS_Service/Service</con:endpoint>
+    <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.trustvesta.com/MobilityUS_Service/Service">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ser:ActDelayAuthorizeRequest>\r
+         <!--You may enter the following 8 items in any order-->\r
+         <!--Optional:-->\r
+         <ser:AddToPDOF>?</ser:AddToPDOF>\r
+         <!--Optional:-->\r
+         <ser:APAgreement>?</ser:APAgreement>\r
+         <!--Optional:-->\r
+         <ser:ChargeCVN>?</ser:ChargeCVN>\r
+         <!--Optional:-->\r
+         <ser:PromoAmount>?</ser:PromoAmount>\r
+         <!--Optional:-->\r
+         <ser:ConsumerIP>?</ser:ConsumerIP>\r
+         <!--Optional:-->\r
+         <ser:StoreIP>?</ser:StoreIP>\r
+         <!--Optional:-->\r
+         <ser:StoreID>?</ser:StoreID>\r
+         <ser:SessionKey>?</ser:SessionKey>\r
+      </ser:ActDelayAuthorizeRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="ActDelayAuthorize"/>
+    <con:environmentSpec>
+      <con:entry environmentId="1fdcf028-54a3-4eac-be85-401de090030d">
+        <con:authProfile>No Authorization</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="5214331a-f93a-4dbb-8438-d770e5d5ca80">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
+  </con:call>
+  <con:environmentSpec>
+    <con:entry environmentId="5214331a-f93a-4dbb-8438-d770e5d5ca80">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:operation>

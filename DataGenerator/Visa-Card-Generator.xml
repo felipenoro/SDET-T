@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="a53f04a6-4173-45f8-8b38-59d3d87529fc" discardOkResults="true" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="Visa Card Generator" searchProperties="true" timeout="0" disabled="true" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="6a7bb692-2e06-4fc0-a834-43f4422879f9fileName">Credit-Card-Generator</con:setting>
+    <con:setting id="ee39b3a5-158d-448b-8a2f-c3d684e95a16fileName">VISA-Card-Generator</con:setting>
+    <con:setting id="a53f04a6-4173-45f8-8b38-59d3d87529fcfileName">Visa-Card-Generator</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="datagen" name="Visa Generator" id="6a25b922-e8bd-4e39-a54c-8b2384b76916">
+    <con:settings/>
+    <con:config xsi:type="con:DataGeneratorStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:property type="Script">
+        <con:configuration>
+          <script>cardPrepend = "400999"
+cardLength = "16"
+
+random = new Random()
+myString = ""
+
+	(cardLength.toInteger() - cardPrepend.length()).times{
+		randomNumber = random.nextInt(9)
+		myString = myString + randomNumber.toString()  
+	}
+
+	myString = cardPrepend + myString
+
+	myStringMinusLastDigit = myString.substring(0, myString.length()-1)
+	mod10Digit = getMod10Digit(myStringMinusLastDigit)
+	myString = myStringMinusLastDigit + mod10Digit
+
+	return """${myString}"""
+
+//-------------------------------------------------------------------------
+def getMod10Digit(String number) {
+	int weight = 2;
+	int sum    = 0;
+	for (int i = number.length() - 1; i >= 0; i--) {
+		int digit = weight * Integer.parseInt(number.substring(i,i+1));
+		sum = sum + (digit / 10) + (digit % 10);
+		weight = (weight == 2) ? 1: 2;
+	}
+	return ((10 - (sum % 10)) % 10);
+	}</script>
+        </con:configuration>
+        <con:name>CreditCard</con:name>
+        <con:mode>STEP</con:mode>
+        <con:shared>false</con:shared>
+      </con:property>
+      <con:property type="Script">
+        <con:configuration>
+          <script>def creditCard = context.expand( '${Visa Generator#CreditCard}' )
+return creditCard.substring(13,16);</script>
+        </con:configuration>
+        <con:name>CVN</con:name>
+        <con:mode>STEP</con:mode>
+        <con:shared>false</con:shared>
+      </con:property>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datagen" name="CreditCard Complements Generator" id="57d2dace-aa99-4a54-b32e-0d770803fcba">
+    <con:settings/>
+    <con:config xsi:type="con:DataGeneratorStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:property type="Script">
+        <con:configuration>
+          <script>def d = new Date().plus(365);
+return d.format('MMyy');</script>
+        </con:configuration>
+        <con:name>ExpDate</con:name>
+        <con:mode>STEP</con:mode>
+        <con:shared>false</con:shared>
+      </con:property>
+      <con:property type="Number">
+        <con:configuration>
+          <start>00000</start>
+          <end>99999</end>
+          <step/>
+          <pattern/>
+          <random>true</random>
+          <persist>false</persist>
+        </con:configuration>
+        <con:name>PostalCode</con:name>
+        <con:mode>STEP</con:mode>
+        <con:shared>false</con:shared>
+      </con:property>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="TransferData" id="837dae7c-396e-474f-bd8e-24a8ba2fe1e8">
+    <con:settings/>
+    <con:config>
+      <script>testRunner.testCase.setPropertyValue('ChargeAccountNumber', context.expand( '${Visa Generator#CreditCard}' ))
+testRunner.testCase.setPropertyValue('ChargeExpirationDate',  context.expand( '${CreditCard Complements Generator#ExpDate}' ))
+testRunner.testCase.setPropertyValue('ChargeCVV', context.expand( '${Visa Generator#CVN}' ))</script>
+    </con:config>
+  </con:testStep>
+  <con:properties>
+    <con:property>
+      <con:name>ChargeAccountNumber</con:name>
+      <con:value>4001413178825234</con:value>
+    </con:property>
+    <con:property>
+      <con:name>ChargeExpirationDate</con:name>
+      <con:value>1019</con:value>
+    </con:property>
+    <con:property>
+      <con:name>ChargeCVV</con:name>
+      <con:value>234</con:value>
+    </con:property>
+  </con:properties>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>756e74fc-c446-48c8-8d06-d23191f442b1</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:environmentSpec>
+    <con:entry environmentId="d5f55bc1-32c5-403e-aa11-462da119e2c6">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="5214331a-f93a-4dbb-8438-d770e5d5ca80">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:testCase>

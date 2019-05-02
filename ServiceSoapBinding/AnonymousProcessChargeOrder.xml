@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation id="10cde7b1-9f98-401c-98a3-c81fbd4f526a" isOneWay="false" action="AnonymousProcessChargeOrder" name="AnonymousProcessChargeOrder" bindingOperationName="AnonymousProcessChargeOrder" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="10cde7b1-9f98-401c-98a3-c81fbd4f526afileName">AnonymousProcessChargeOrder</con:setting>
+  </con:settings>
+  <con:call id="b4fb91d6-89f3-4c4c-b92b-01abb114d464" name="Request 1">
+    <con:settings/>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>http://localhost:8020/MobilityUS_Service/Service</con:endpoint>
+    <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.trustvesta.com/MobilityUS_Service/Service">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ser:AnonymousProcessChargeOrderRequest>\r
+         <!--You may enter the following 6 items in any order-->\r
+         <ser:AnonymousSessionKey>?</ser:AnonymousSessionKey>\r
+         <!--Optional:-->\r
+         <ser:ChargeCVN>?</ser:ChargeCVN>\r
+         <!--Optional:-->\r
+         <ser:PDSSNLast4>?</ser:PDSSNLast4>\r
+         <!--Optional:-->\r
+         <ser:OriginatingIPAddress>?</ser:OriginatingIPAddress>\r
+         <!--Optional:-->\r
+         <ser:WebSessionID>?</ser:WebSessionID>\r
+         <!--Optional:-->\r
+         <ser:EmailAddress>?</ser:EmailAddress>\r
+      </ser:AnonymousProcessChargeOrderRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="AnonymousProcessChargeOrder"/>
+    <con:environmentSpec>
+      <con:entry environmentId="1fdcf028-54a3-4eac-be85-401de090030d">
+        <con:authProfile>No Authorization</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="5214331a-f93a-4dbb-8438-d770e5d5ca80">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
+  </con:call>
+  <con:environmentSpec>
+    <con:entry environmentId="5214331a-f93a-4dbb-8438-d770e5d5ca80">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:operation>

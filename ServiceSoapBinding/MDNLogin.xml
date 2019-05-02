@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation id="82ec335a-72de-4a73-a80b-948ff95757c0" isOneWay="false" action="MDNLogin" name="MDNLogin" bindingOperationName="MDNLogin" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="82ec335a-72de-4a73-a80b-948ff95757c0fileName">MDNLogin</con:setting>
+  </con:settings>
+  <con:call id="9cf8c6b6-a4bb-4422-a034-73652498cdea" name="Request 1">
+    <con:settings/>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>http://localhost:8020/MobilityUS_Service/Service</con:endpoint>
+    <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.trustvesta.com/MobilityUS_Service/Service">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ser:MDNLoginRequest>\r
+         <!--You may enter the following 7 items in any order-->\r
+         <ser:MDN>?</ser:MDN>\r
+         <ser:Pin>?</ser:Pin>\r
+         <ser:PartnerChannelCode>?</ser:PartnerChannelCode>\r
+         <!--Optional:-->\r
+         <ser:PartnerChannelDescriptor>?</ser:PartnerChannelDescriptor>\r
+         <ser:VendorID>?</ser:VendorID>\r
+         <ser:VendorPassword>?</ser:VendorPassword>\r
+         <!--Optional:-->\r
+         <ser:AgentID>?</ser:AgentID>\r
+      </ser:MDNLoginRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="MDNLogin"/>
+    <con:environmentSpec>
+      <con:entry environmentId="1fdcf028-54a3-4eac-be85-401de090030d">
+        <con:authProfile>No Authorization</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="5214331a-f93a-4dbb-8438-d770e5d5ca80">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
+  </con:call>
+  <con:environmentSpec>
+    <con:entry environmentId="5214331a-f93a-4dbb-8438-d770e5d5ca80">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:operation>

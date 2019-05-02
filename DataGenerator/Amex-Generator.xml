@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="34ebd353-6ec3-4abd-b4c1-c9f13051dd46" discardOkResults="true" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="Amex Generator" searchProperties="true" timeout="0" disabled="true" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="6a7bb692-2e06-4fc0-a834-43f4422879f9fileName">Credit-Card-Generator</con:setting>
+    <con:setting id="ee39b3a5-158d-448b-8a2f-c3d684e95a16fileName">Credit-Card-Generator</con:setting>
+    <con:setting id="4afc2529-a56b-4a9c-9203-4ff0b7f0294bfileName">MasterCard-Generator</con:setting>
+    <con:setting id="611e7304-0276-4cbf-b1fe-4d8a8e69a3befileName">Amex-Generator</con:setting>
+    <con:setting id="34ebd353-6ec3-4abd-b4c1-c9f13051dd46fileName">Amex-Generator</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="datagen" name="AMEX Generator" id="9e822997-f772-4af9-aa5f-e588906a0129">
+    <con:settings/>
+    <con:config xsi:type="con:DataGeneratorStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:property type="Script">
+        <con:configuration>
+          <script>cardPrepend = "340142"
+cardLength = "15"
+
+random = new Random()
+myString = ""
+
+	(cardLength.toInteger() - cardPrepend.length()).times{
+		randomNumber = random.nextInt(9)
+		myString = myString + randomNumber.toString()  
+	}
+
+	myString = cardPrepend + myString
+
+	myStringMinusLastDigit = myString.substring(0, myString.length()-1)
+	mod10Digit = getMod10Digit(myStringMinusLastDigit)
+	myString = myStringMinusLastDigit + mod10Digit
+
+	return """${myString}"""
+
+//-------------------------------------------------------------------------
+def getMod10Digit(String number) {
+	int weight = 2;
+	int sum    = 0;
+	for (int i = number.length() - 1; i >= 0; i--) {
+		int digit = weight * Integer.parseInt(number.substring(i,i+1));
+		sum = sum + (digit / 10) + (digit % 10);
+		weight = (weight == 2) ? 1: 2;
+	}
+	return ((10 - (sum % 10)) % 10);
+	}</script>
+        </con:configuration>
+        <con:name>CreditCard</con:name>
+        <con:mode>STEP</con:mode>
+        <con:shared>false</con:shared>
+      </con:property>
+      <con:property type="Script">
+        <con:configuration>
+          <script>def creditCard = context.expand( '${AMEX Generator#CreditCard}' )
+return creditCard.substring(12,15);</script>
+        </con:configuration>
+        <con:name>CVN</con:name>
+        <con:mode>STEP</con:mode>
+        <con:shared>false</con:shared>
+      </con:property>
+      <con:property type="Script">
+        <con:configuration>
+          <script>def d = new Date().plus(365);
+return d.format('MMyy');</script>
+        </con:configuration>
+        <con:name>ExpDate</con:name>
+        <con:mode>STEP</con:mode>
+        <con:shared>false</con:shared>
+      </con:property>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="TransferData" id="e1bbe73e-a252-4bfd-b13b-bac772872b53">
+    <con:settings/>
+    <con:config>
+      <script>testRunner.testCase.setPropertyValue('ChargeAccountNumber',context.expand( '${AMEX Generator#CreditCard}' ))
+testRunner.testCase.setPropertyValue('ChargeExpirationDate',  context.expand( '${AMEX Generator#ExpDate}' ))
+testRunner.testCase.setPropertyValue('ChargeCVV', context.expand( '${AMEX Generator#CVN}' ))</script>
+    </con:config>
+  </con:testStep>
+  <con:properties>
+    <con:property>
+      <con:name>ChargeAccountNumber</con:name>
+      <con:value>340142870206405</con:value>
+    </con:property>
+    <con:property>
+      <con:name>ChargeExpirationDate</con:name>
+      <con:value>1119</con:value>
+    </con:property>
+    <con:property>
+      <con:name>ChargeCVV</con:name>
+      <con:value>405</con:value>
+    </con:property>
+  </con:properties>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>756e74fc-c446-48c8-8d06-d23191f442b1</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:environmentSpec>
+    <con:entry environmentId="d5f55bc1-32c5-403e-aa11-462da119e2c6">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="5214331a-f93a-4dbb-8438-d770e5d5ca80">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:testCase>

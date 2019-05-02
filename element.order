@@ -1,0 +1,7 @@
+ServiceSoapBinding
+DataGenerator
+SessionCreate
+ActDelayOrderPrepareWithNewCard
+ActDelayAuthorize
+ActDelayQuery
+ActDelayConvert
